@@ -108,7 +108,7 @@ const getProductByCatSlug = async (req, res) => {
 
         const product = await Product.find({ catslug });
 
-        if (!product) {
+        if (product.length === 0) {
             return res.status(404).json({ message: "Product not found" });
         }
 
